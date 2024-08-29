@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/main.dir/main.c.o -o /home/frontend/dev/c/music-player/bin/main  lib/liblvgl.a lib/liblvgl_examples.a lib/liblvgl_demos.a lib/liblvgl_thorvg.a /usr/lib/x86_64-linux-gnu/libSDL2.so -lm -lpthread lib/liblvgl.a 

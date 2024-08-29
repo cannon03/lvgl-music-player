@@ -1,0 +1,11 @@
+{
+	"titles":[
+		{
+			"id" : 1,
+			"name": "Blurry Eyes",
+			"artist": "L'arc en ciel",
+			"poster": "./blurry-eyes/poster.png",
+			"uri": "./blurry-eyes/music.mp3",
+		}
+	]
+}
