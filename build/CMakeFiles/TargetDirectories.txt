@@ -2,17 +2,3 @@
 /home/frontend/dev/c/music-player/build/CMakeFiles/run.dir
 /home/frontend/dev/c/music-player/build/CMakeFiles/edit_cache.dir
 /home/frontend/dev/c/music-player/build/CMakeFiles/rebuild_cache.dir
-/home/frontend/dev/c/music-player/build/CMakeFiles/list_install_components.dir
-/home/frontend/dev/c/music-player/build/CMakeFiles/install.dir
-/home/frontend/dev/c/music-player/build/CMakeFiles/install/local.dir
-/home/frontend/dev/c/music-player/build/CMakeFiles/install/strip.dir
-/home/frontend/dev/c/music-player/build/lvgl/CMakeFiles/lvgl.dir
-/home/frontend/dev/c/music-player/build/lvgl/CMakeFiles/lvgl_thorvg.dir
-/home/frontend/dev/c/music-player/build/lvgl/CMakeFiles/lvgl_examples.dir
-/home/frontend/dev/c/music-player/build/lvgl/CMakeFiles/lvgl_demos.dir
-/home/frontend/dev/c/music-player/build/lvgl/CMakeFiles/edit_cache.dir
-/home/frontend/dev/c/music-player/build/lvgl/CMakeFiles/rebuild_cache.dir
-/home/frontend/dev/c/music-player/build/lvgl/CMakeFiles/list_install_components.dir
-/home/frontend/dev/c/music-player/build/lvgl/CMakeFiles/install.dir
-/home/frontend/dev/c/music-player/build/lvgl/CMakeFiles/install/local.dir
-/home/frontend/dev/c/music-player/build/lvgl/CMakeFiles/install/strip.dir

@@ -14,40 +14,17 @@
 # EXTERNAL cache entries
 ########################
 
-//Build shared libraries
-BUILD_SHARED_LIBS:BOOL=OFF
+//The ALSA (asound) include directory
+ALSA_INCLUDE_DIR:PATH=/usr/include
+
+//The ALSA (asound) library
+ALSA_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libasound.so
 
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
-
-//ASM compiler
-CMAKE_ASM_COMPILER:FILEPATH=/usr/bin/cc
-
-//A wrapper around 'ar' adding the appropriate '--plugin' option
-// for the GCC compiler
-CMAKE_ASM_COMPILER_AR:FILEPATH=/usr/bin/gcc-ar
-
-//A wrapper around 'ranlib' adding the appropriate '--plugin' option
-// for the GCC compiler
-CMAKE_ASM_COMPILER_RANLIB:FILEPATH=/usr/bin/gcc-ranlib
-
-//Flags used by the ASM compiler during all build types.
-CMAKE_ASM_FLAGS:STRING=
-
-//Flags used by the ASM compiler during DEBUG builds.
-CMAKE_ASM_FLAGS_DEBUG:STRING=-g
-
-//Flags used by the ASM compiler during MINSIZEREL builds.
-CMAKE_ASM_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
-
-//Flags used by the ASM compiler during RELEASE builds.
-CMAKE_ASM_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
-
-//Flags used by the ASM compiler during RELWITHDEBINFO builds.
-CMAKE_ASM_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
@@ -60,13 +37,13 @@ CMAKE_COLOR_MAKEFILE:BOOL=ON
 CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++
 
 //LLVM archiver
-CMAKE_CXX_COMPILER_AR:FILEPATH=/usr/bin/llvm-ar-18
+CMAKE_CXX_COMPILER_AR:FILEPATH=CMAKE_CXX_COMPILER_AR-NOTFOUND
 
 //`clang-scan-deps` dependency scanner
 CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS:FILEPATH=CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND
 
 //Generate index for LLVM archive
-CMAKE_CXX_COMPILER_RANLIB:FILEPATH=/usr/bin/llvm-ranlib-18
+CMAKE_CXX_COMPILER_RANLIB:FILEPATH=CMAKE_CXX_COMPILER_RANLIB-NOTFOUND
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=
@@ -245,26 +222,62 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Use #include "lv_conf.h" instead of #include "../../lv_conf.h"
-LV_CONF_INCLUDE_SIMPLE:BOOL=ON
+//Path to a file.
+FLAC_INCLUDE_DIR:PATH=/usr/include
 
-//Use #include "lvgl.h" instead of #include "../../lvgl.h"
-LV_LVGL_H_INCLUDE_SIMPLE:BOOL=ON
+//Path to a library.
+FLAC_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libFLAC.so
 
-//The directory containing a CMake configuration file for SDL2.
-SDL2_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/SDL2
+//Path to a library.
+MP3LAME_HIP_LIBRARY:FILEPATH=MP3LAME_HIP_LIBRARY-NOTFOUND
 
-//The directory containing a CMake configuration file for SDL2_image.
-SDL2_image_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/SDL2_image
+//Path to a file.
+MP3LAME_INCLUDE_DIR:PATH=/usr/include
 
-//Value Computed by CMake
-lvgl_BINARY_DIR:STATIC=/home/frontend/dev/c/music-player/build/lvgl
+//Path to a library.
+MP3LAME_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libmp3lame.so
 
-//Value Computed by CMake
-lvgl_IS_TOP_LEVEL:STATIC=OFF
+//Path to a file.
+OGG_INCLUDE_DIR:PATH=/usr/include
 
-//Value Computed by CMake
-lvgl_SOURCE_DIR:STATIC=/home/frontend/dev/c/music-player/lvgl
+//Path to a library.
+OGG_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libogg.so
+
+//Path to a file.
+OPUS_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+OPUS_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libopus.so
+
+//Arguments to supply to pkg-config
+PKG_CONFIG_ARGN:STRING=
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
+//Path to a file.
+Vorbis_Enc_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+Vorbis_Enc_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvorbisenc.so
+
+//Path to a file.
+Vorbis_File_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+Vorbis_File_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvorbisfile.so
+
+//Path to a file.
+Vorbis_Vorbis_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+Vorbis_Vorbis_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libvorbis.so
+
+//Path to a file.
+mpg123_INCLUDE_DIR:PATH=/usr/include/x86_64-linux-gnu
+
+//Path to a library.
+mpg123_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libmpg123.so
 
 //Value Computed by CMake
 music_player_BINARY_DIR:STATIC=/home/frontend/dev/c/music-player/build
@@ -275,32 +288,43 @@ music_player_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 music_player_SOURCE_DIR:STATIC=/home/frontend/dev/c/music-player
 
+//Path to a library.
+pkgcfg_lib_JACK_jack:FILEPATH=/usr/lib/x86_64-linux-gnu/libjack.so
+
+//Path to a library.
+pkgcfg_lib_PC_FLAC_FLAC:FILEPATH=/usr/lib/x86_64-linux-gnu/libFLAC.so
+
+//Path to a library.
+pkgcfg_lib_PC_MPG123_mpg123:FILEPATH=/usr/lib/x86_64-linux-gnu/libmpg123.so
+
+//Path to a library.
+pkgcfg_lib_PC_OGG_ogg:FILEPATH=/usr/lib/x86_64-linux-gnu/libogg.so
+
+//Path to a library.
+pkgcfg_lib_PC_OPUS_opus:FILEPATH=/usr/lib/x86_64-linux-gnu/libopus.so
+
+//Path to a library.
+pkgcfg_lib_PC_Vorbis_Enc_vorbisenc:FILEPATH=/usr/lib/x86_64-linux-gnu/libvorbisenc.so
+
+//Path to a library.
+pkgcfg_lib_PC_Vorbis_File_vorbisfile:FILEPATH=/usr/lib/x86_64-linux-gnu/libvorbisfile.so
+
+//Path to a library.
+pkgcfg_lib_PC_Vorbis_Vorbis_vorbis:FILEPATH=/usr/lib/x86_64-linux-gnu/libvorbis.so
+
 
 ########################
 # INTERNAL cache entries
 ########################
 
+//ADVANCED property for variable: ALSA_INCLUDE_DIR
+ALSA_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ALSA_LIBRARY
+ALSA_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_ADDR2LINE
 CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
 CMAKE_AR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_ASM_COMPILER
-CMAKE_ASM_COMPILER-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_ASM_COMPILER_AR
-CMAKE_ASM_COMPILER_AR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_ASM_COMPILER_RANLIB
-CMAKE_ASM_COMPILER_RANLIB-ADVANCED:INTERNAL=1
-CMAKE_ASM_COMPILER_WORKS:INTERNAL=1
-//ADVANCED property for variable: CMAKE_ASM_FLAGS
-CMAKE_ASM_FLAGS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_ASM_FLAGS_DEBUG
-CMAKE_ASM_FLAGS_DEBUG-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_ASM_FLAGS_MINSIZEREL
-CMAKE_ASM_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_ASM_FLAGS_RELEASE
-CMAKE_ASM_FLAGS_RELEASE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CMAKE_ASM_FLAGS_RELWITHDEBINFO
-CMAKE_ASM_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=/home/frontend/dev/c/music-player/build
 //Major version of cmake used to create the current loaded cache
@@ -377,6 +401,8 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/home/frontend/dev/c/music-player
@@ -399,7 +425,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -444,6 +470,379 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding ALSA
+FIND_PACKAGE_MESSAGE_DETAILS_ALSA:INTERNAL=[/usr/lib/x86_64-linux-gnu/libasound.so][/usr/include][v1.2.11()]
+//Details about finding FLAC
+FIND_PACKAGE_MESSAGE_DETAILS_FLAC:INTERNAL=[/usr/lib/x86_64-linux-gnu/libFLAC.so][/usr/include][TRUE][v1.4.3()]
+//Details about finding JACK
+FIND_PACKAGE_MESSAGE_DETAILS_JACK:INTERNAL=[/usr/lib/x86_64-linux-gnu/libjack.so;Regex::regex][/usr/include][TRUE][TRUE][v()]
+//Details about finding Ogg
+FIND_PACKAGE_MESSAGE_DETAILS_Ogg:INTERNAL=[/usr/lib/x86_64-linux-gnu/libogg.so][/usr/include][v1.3.5(1.3)]
+//Details about finding Opus
+FIND_PACKAGE_MESSAGE_DETAILS_Opus:INTERNAL=[/usr/lib/x86_64-linux-gnu/libopus.so][/usr/include][TRUE][v1.4()]
+//Details about finding Regex
+FIND_PACKAGE_MESSAGE_DETAILS_Regex:INTERNAL=[POSIX regex.h][v()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//Details about finding Vorbis
+FIND_PACKAGE_MESSAGE_DETAILS_Vorbis:INTERNAL=[/usr/lib/x86_64-linux-gnu/libvorbis.so][/usr/include][TRUE][c ][v1.3.7()]
+//Details about finding mp3lame
+FIND_PACKAGE_MESSAGE_DETAILS_mp3lame:INTERNAL=[/usr/lib/x86_64-linux-gnu/libmp3lame.so][/usr/include][v()]
+//Details about finding mpg123
+FIND_PACKAGE_MESSAGE_DETAILS_mpg123:INTERNAL=[/usr/lib/x86_64-linux-gnu/libmpg123.so][/usr/include/x86_64-linux-gnu][v1.32.5()]
+//ADVANCED property for variable: FLAC_INCLUDE_DIR
+FLAC_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FLAC_LIBRARY
+FLAC_LIBRARY-ADVANCED:INTERNAL=1
+JACK_CFLAGS:INTERNAL=-I/usr/include
+JACK_CFLAGS_I:INTERNAL=
+JACK_CFLAGS_OTHER:INTERNAL=
+JACK_FOUND:INTERNAL=1
+JACK_INCLUDEDIR:INTERNAL=/usr/include
+JACK_INCLUDE_DIRS:INTERNAL=/usr/include
+JACK_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-ljack
+JACK_LDFLAGS_OTHER:INTERNAL=
+JACK_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+JACK_LIBRARIES:INTERNAL=jack
+JACK_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+JACK_LIBS:INTERNAL=
+JACK_LIBS_L:INTERNAL=
+JACK_LIBS_OTHER:INTERNAL=
+JACK_LIBS_PATHS:INTERNAL=
+JACK_MODULE_NAME:INTERNAL=jack
+JACK_PREFIX:INTERNAL=/usr
+JACK_STATIC_CFLAGS:INTERNAL=-I/usr/include
+JACK_STATIC_CFLAGS_I:INTERNAL=
+JACK_STATIC_CFLAGS_OTHER:INTERNAL=
+JACK_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
+JACK_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-ljack
+JACK_STATIC_LDFLAGS_OTHER:INTERNAL=
+JACK_STATIC_LIBDIR:INTERNAL=
+JACK_STATIC_LIBRARIES:INTERNAL=jack
+JACK_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+JACK_STATIC_LIBS:INTERNAL=
+JACK_STATIC_LIBS_L:INTERNAL=
+JACK_STATIC_LIBS_OTHER:INTERNAL=
+JACK_STATIC_LIBS_PATHS:INTERNAL=
+JACK_VERSION:INTERNAL=1.9.21
+JACK_jack_INCLUDEDIR:INTERNAL=
+JACK_jack_LIBDIR:INTERNAL=
+JACK_jack_PREFIX:INTERNAL=
+JACK_jack_VERSION:INTERNAL=
+//ADVANCED property for variable: MP3LAME_HIP_LIBRARY
+MP3LAME_HIP_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MP3LAME_INCLUDE_DIR
+MP3LAME_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: MP3LAME_LIBRARY
+MP3LAME_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OGG_INCLUDE_DIR
+OGG_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OGG_LIBRARY
+OGG_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPUS_INCLUDE_DIR
+OPUS_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPUS_LIBRARY
+OPUS_LIBRARY-ADVANCED:INTERNAL=1
+PC_FLAC_CFLAGS:INTERNAL=-I/usr/include
+PC_FLAC_CFLAGS_I:INTERNAL=
+PC_FLAC_CFLAGS_OTHER:INTERNAL=
+PC_FLAC_FOUND:INTERNAL=1
+PC_FLAC_INCLUDEDIR:INTERNAL=/usr/include
+PC_FLAC_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_FLAC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lFLAC
+PC_FLAC_LDFLAGS_OTHER:INTERNAL=
+PC_FLAC_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_FLAC_LIBRARIES:INTERNAL=FLAC
+PC_FLAC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_FLAC_LIBS:INTERNAL=
+PC_FLAC_LIBS_L:INTERNAL=
+PC_FLAC_LIBS_OTHER:INTERNAL=
+PC_FLAC_LIBS_PATHS:INTERNAL=
+PC_FLAC_MODULE_NAME:INTERNAL=flac
+PC_FLAC_PREFIX:INTERNAL=/usr
+PC_FLAC_STATIC_CFLAGS:INTERNAL=-I/usr/include
+PC_FLAC_STATIC_CFLAGS_I:INTERNAL=
+PC_FLAC_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_FLAC_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_FLAC_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lFLAC;-lm;-L/usr/lib/x86_64-linux-gnu;-logg
+PC_FLAC_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_FLAC_STATIC_LIBDIR:INTERNAL=
+PC_FLAC_STATIC_LIBRARIES:INTERNAL=FLAC;m;ogg
+PC_FLAC_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu
+PC_FLAC_STATIC_LIBS:INTERNAL=
+PC_FLAC_STATIC_LIBS_L:INTERNAL=
+PC_FLAC_STATIC_LIBS_OTHER:INTERNAL=
+PC_FLAC_STATIC_LIBS_PATHS:INTERNAL=
+PC_FLAC_VERSION:INTERNAL=1.4.3
+PC_FLAC_flac_INCLUDEDIR:INTERNAL=
+PC_FLAC_flac_LIBDIR:INTERNAL=
+PC_FLAC_flac_PREFIX:INTERNAL=
+PC_FLAC_flac_VERSION:INTERNAL=
+PC_MPG123_CFLAGS:INTERNAL=-I/usr/include/x86_64-linux-gnu
+PC_MPG123_CFLAGS_I:INTERNAL=
+PC_MPG123_CFLAGS_OTHER:INTERNAL=
+PC_MPG123_FOUND:INTERNAL=1
+PC_MPG123_INCLUDEDIR:INTERNAL=/usr/include/x86_64-linux-gnu
+PC_MPG123_INCLUDE_DIRS:INTERNAL=/usr/include/x86_64-linux-gnu
+PC_MPG123_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lmpg123
+PC_MPG123_LDFLAGS_OTHER:INTERNAL=
+PC_MPG123_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_MPG123_LIBRARIES:INTERNAL=mpg123
+PC_MPG123_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_MPG123_LIBS:INTERNAL=
+PC_MPG123_LIBS_L:INTERNAL=
+PC_MPG123_LIBS_OTHER:INTERNAL=
+PC_MPG123_LIBS_PATHS:INTERNAL=
+PC_MPG123_MODULE_NAME:INTERNAL=libmpg123
+PC_MPG123_PREFIX:INTERNAL=/usr
+PC_MPG123_STATIC_CFLAGS:INTERNAL=-I/usr/include/x86_64-linux-gnu
+PC_MPG123_STATIC_CFLAGS_I:INTERNAL=
+PC_MPG123_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_MPG123_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/x86_64-linux-gnu
+PC_MPG123_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lmpg123;-lm
+PC_MPG123_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_MPG123_STATIC_LIBDIR:INTERNAL=
+PC_MPG123_STATIC_LIBRARIES:INTERNAL=mpg123;m
+PC_MPG123_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_MPG123_STATIC_LIBS:INTERNAL=
+PC_MPG123_STATIC_LIBS_L:INTERNAL=
+PC_MPG123_STATIC_LIBS_OTHER:INTERNAL=
+PC_MPG123_STATIC_LIBS_PATHS:INTERNAL=
+PC_MPG123_VERSION:INTERNAL=1.32.5
+PC_MPG123_libmpg123_INCLUDEDIR:INTERNAL=
+PC_MPG123_libmpg123_LIBDIR:INTERNAL=
+PC_MPG123_libmpg123_PREFIX:INTERNAL=
+PC_MPG123_libmpg123_VERSION:INTERNAL=
+PC_OGG_CFLAGS:INTERNAL=-I/usr/include
+PC_OGG_CFLAGS_I:INTERNAL=
+PC_OGG_CFLAGS_OTHER:INTERNAL=
+PC_OGG_FOUND:INTERNAL=1
+PC_OGG_INCLUDEDIR:INTERNAL=/usr/include
+PC_OGG_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_OGG_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-logg
+PC_OGG_LDFLAGS_OTHER:INTERNAL=
+PC_OGG_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_OGG_LIBRARIES:INTERNAL=ogg
+PC_OGG_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_OGG_LIBS:INTERNAL=
+PC_OGG_LIBS_L:INTERNAL=
+PC_OGG_LIBS_OTHER:INTERNAL=
+PC_OGG_LIBS_PATHS:INTERNAL=
+PC_OGG_MODULE_NAME:INTERNAL=ogg
+PC_OGG_PREFIX:INTERNAL=/usr
+PC_OGG_STATIC_CFLAGS:INTERNAL=-I/usr/include
+PC_OGG_STATIC_CFLAGS_I:INTERNAL=
+PC_OGG_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_OGG_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_OGG_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-logg
+PC_OGG_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_OGG_STATIC_LIBDIR:INTERNAL=
+PC_OGG_STATIC_LIBRARIES:INTERNAL=ogg
+PC_OGG_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_OGG_STATIC_LIBS:INTERNAL=
+PC_OGG_STATIC_LIBS_L:INTERNAL=
+PC_OGG_STATIC_LIBS_OTHER:INTERNAL=
+PC_OGG_STATIC_LIBS_PATHS:INTERNAL=
+PC_OGG_VERSION:INTERNAL=1.3.5
+PC_OGG_ogg_INCLUDEDIR:INTERNAL=
+PC_OGG_ogg_LIBDIR:INTERNAL=
+PC_OGG_ogg_PREFIX:INTERNAL=
+PC_OGG_ogg_VERSION:INTERNAL=
+PC_OPUS_CFLAGS:INTERNAL=-I/usr/include/opus
+PC_OPUS_CFLAGS_I:INTERNAL=
+PC_OPUS_CFLAGS_OTHER:INTERNAL=
+PC_OPUS_FOUND:INTERNAL=1
+PC_OPUS_INCLUDEDIR:INTERNAL=/usr/include
+PC_OPUS_INCLUDE_DIRS:INTERNAL=/usr/include/opus
+PC_OPUS_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lopus
+PC_OPUS_LDFLAGS_OTHER:INTERNAL=
+PC_OPUS_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_OPUS_LIBRARIES:INTERNAL=opus
+PC_OPUS_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_OPUS_LIBS:INTERNAL=
+PC_OPUS_LIBS_L:INTERNAL=
+PC_OPUS_LIBS_OTHER:INTERNAL=
+PC_OPUS_LIBS_PATHS:INTERNAL=
+PC_OPUS_MODULE_NAME:INTERNAL=opus
+PC_OPUS_PREFIX:INTERNAL=/usr
+PC_OPUS_STATIC_CFLAGS:INTERNAL=-I/usr/include/opus
+PC_OPUS_STATIC_CFLAGS_I:INTERNAL=
+PC_OPUS_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_OPUS_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/opus
+PC_OPUS_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lopus;-lm
+PC_OPUS_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_OPUS_STATIC_LIBDIR:INTERNAL=
+PC_OPUS_STATIC_LIBRARIES:INTERNAL=opus;m
+PC_OPUS_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_OPUS_STATIC_LIBS:INTERNAL=
+PC_OPUS_STATIC_LIBS_L:INTERNAL=
+PC_OPUS_STATIC_LIBS_OTHER:INTERNAL=
+PC_OPUS_STATIC_LIBS_PATHS:INTERNAL=
+PC_OPUS_VERSION:INTERNAL=1.4
+PC_OPUS_opus_INCLUDEDIR:INTERNAL=
+PC_OPUS_opus_LIBDIR:INTERNAL=
+PC_OPUS_opus_PREFIX:INTERNAL=
+PC_OPUS_opus_VERSION:INTERNAL=
+PC_Vorbis_Enc_CFLAGS:INTERNAL=-I/usr/include
+PC_Vorbis_Enc_CFLAGS_I:INTERNAL=
+PC_Vorbis_Enc_CFLAGS_OTHER:INTERNAL=
+PC_Vorbis_Enc_FOUND:INTERNAL=1
+PC_Vorbis_Enc_INCLUDEDIR:INTERNAL=/usr/include
+PC_Vorbis_Enc_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_Vorbis_Enc_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lvorbisenc
+PC_Vorbis_Enc_LDFLAGS_OTHER:INTERNAL=
+PC_Vorbis_Enc_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_Vorbis_Enc_LIBRARIES:INTERNAL=vorbisenc
+PC_Vorbis_Enc_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_Vorbis_Enc_LIBS:INTERNAL=
+PC_Vorbis_Enc_LIBS_L:INTERNAL=
+PC_Vorbis_Enc_LIBS_OTHER:INTERNAL=
+PC_Vorbis_Enc_LIBS_PATHS:INTERNAL=
+PC_Vorbis_Enc_MODULE_NAME:INTERNAL=vorbisenc
+PC_Vorbis_Enc_PREFIX:INTERNAL=/usr
+PC_Vorbis_Enc_STATIC_CFLAGS:INTERNAL=-I/usr/include
+PC_Vorbis_Enc_STATIC_CFLAGS_I:INTERNAL=
+PC_Vorbis_Enc_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_Vorbis_Enc_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_Vorbis_Enc_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lvorbisenc;-L/usr/lib/x86_64-linux-gnu;-lvorbis;-lm;-L/usr/lib/x86_64-linux-gnu;-logg
+PC_Vorbis_Enc_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_Vorbis_Enc_STATIC_LIBDIR:INTERNAL=
+PC_Vorbis_Enc_STATIC_LIBRARIES:INTERNAL=vorbisenc;vorbis;m;ogg
+PC_Vorbis_Enc_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu
+PC_Vorbis_Enc_STATIC_LIBS:INTERNAL=
+PC_Vorbis_Enc_STATIC_LIBS_L:INTERNAL=
+PC_Vorbis_Enc_STATIC_LIBS_OTHER:INTERNAL=
+PC_Vorbis_Enc_STATIC_LIBS_PATHS:INTERNAL=
+PC_Vorbis_Enc_VERSION:INTERNAL=1.3.7
+PC_Vorbis_Enc_vorbisenc_INCLUDEDIR:INTERNAL=
+PC_Vorbis_Enc_vorbisenc_LIBDIR:INTERNAL=
+PC_Vorbis_Enc_vorbisenc_PREFIX:INTERNAL=
+PC_Vorbis_Enc_vorbisenc_VERSION:INTERNAL=
+PC_Vorbis_File_CFLAGS:INTERNAL=-I/usr/include
+PC_Vorbis_File_CFLAGS_I:INTERNAL=
+PC_Vorbis_File_CFLAGS_OTHER:INTERNAL=
+PC_Vorbis_File_FOUND:INTERNAL=1
+PC_Vorbis_File_INCLUDEDIR:INTERNAL=/usr/include
+PC_Vorbis_File_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_Vorbis_File_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lvorbisfile
+PC_Vorbis_File_LDFLAGS_OTHER:INTERNAL=
+PC_Vorbis_File_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_Vorbis_File_LIBRARIES:INTERNAL=vorbisfile
+PC_Vorbis_File_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_Vorbis_File_LIBS:INTERNAL=
+PC_Vorbis_File_LIBS_L:INTERNAL=
+PC_Vorbis_File_LIBS_OTHER:INTERNAL=
+PC_Vorbis_File_LIBS_PATHS:INTERNAL=
+PC_Vorbis_File_MODULE_NAME:INTERNAL=vorbisfile
+PC_Vorbis_File_PREFIX:INTERNAL=/usr
+PC_Vorbis_File_STATIC_CFLAGS:INTERNAL=-I/usr/include
+PC_Vorbis_File_STATIC_CFLAGS_I:INTERNAL=
+PC_Vorbis_File_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_Vorbis_File_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_Vorbis_File_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lvorbisfile;-L/usr/lib/x86_64-linux-gnu;-lvorbis;-lm;-L/usr/lib/x86_64-linux-gnu;-logg
+PC_Vorbis_File_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_Vorbis_File_STATIC_LIBDIR:INTERNAL=
+PC_Vorbis_File_STATIC_LIBRARIES:INTERNAL=vorbisfile;vorbis;m;ogg
+PC_Vorbis_File_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu
+PC_Vorbis_File_STATIC_LIBS:INTERNAL=
+PC_Vorbis_File_STATIC_LIBS_L:INTERNAL=
+PC_Vorbis_File_STATIC_LIBS_OTHER:INTERNAL=
+PC_Vorbis_File_STATIC_LIBS_PATHS:INTERNAL=
+PC_Vorbis_File_VERSION:INTERNAL=1.3.7
+PC_Vorbis_File_vorbisfile_INCLUDEDIR:INTERNAL=
+PC_Vorbis_File_vorbisfile_LIBDIR:INTERNAL=
+PC_Vorbis_File_vorbisfile_PREFIX:INTERNAL=
+PC_Vorbis_File_vorbisfile_VERSION:INTERNAL=
+PC_Vorbis_Vorbis_CFLAGS:INTERNAL=-I/usr/include
+PC_Vorbis_Vorbis_CFLAGS_I:INTERNAL=
+PC_Vorbis_Vorbis_CFLAGS_OTHER:INTERNAL=
+PC_Vorbis_Vorbis_FOUND:INTERNAL=1
+PC_Vorbis_Vorbis_INCLUDEDIR:INTERNAL=/usr/include
+PC_Vorbis_Vorbis_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_Vorbis_Vorbis_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lvorbis
+PC_Vorbis_Vorbis_LDFLAGS_OTHER:INTERNAL=
+PC_Vorbis_Vorbis_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_Vorbis_Vorbis_LIBRARIES:INTERNAL=vorbis
+PC_Vorbis_Vorbis_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu
+PC_Vorbis_Vorbis_LIBS:INTERNAL=
+PC_Vorbis_Vorbis_LIBS_L:INTERNAL=
+PC_Vorbis_Vorbis_LIBS_OTHER:INTERNAL=
+PC_Vorbis_Vorbis_LIBS_PATHS:INTERNAL=
+PC_Vorbis_Vorbis_MODULE_NAME:INTERNAL=vorbis
+PC_Vorbis_Vorbis_PREFIX:INTERNAL=/usr
+PC_Vorbis_Vorbis_STATIC_CFLAGS:INTERNAL=-I/usr/include
+PC_Vorbis_Vorbis_STATIC_CFLAGS_I:INTERNAL=
+PC_Vorbis_Vorbis_STATIC_CFLAGS_OTHER:INTERNAL=
+PC_Vorbis_Vorbis_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
+PC_Vorbis_Vorbis_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu;-lvorbis;-lm;-L/usr/lib/x86_64-linux-gnu;-logg
+PC_Vorbis_Vorbis_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_Vorbis_Vorbis_STATIC_LIBDIR:INTERNAL=
+PC_Vorbis_Vorbis_STATIC_LIBRARIES:INTERNAL=vorbis;m;ogg
+PC_Vorbis_Vorbis_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu;/usr/lib/x86_64-linux-gnu
+PC_Vorbis_Vorbis_STATIC_LIBS:INTERNAL=
+PC_Vorbis_Vorbis_STATIC_LIBS_L:INTERNAL=
+PC_Vorbis_Vorbis_STATIC_LIBS_OTHER:INTERNAL=
+PC_Vorbis_Vorbis_STATIC_LIBS_PATHS:INTERNAL=
+PC_Vorbis_Vorbis_VERSION:INTERNAL=1.3.7
+PC_Vorbis_Vorbis_vorbis_INCLUDEDIR:INTERNAL=
+PC_Vorbis_Vorbis_vorbis_LIBDIR:INTERNAL=
+PC_Vorbis_Vorbis_vorbis_PREFIX:INTERNAL=
+PC_Vorbis_Vorbis_vorbis_VERSION:INTERNAL=
+//ADVANCED property for variable: PKG_CONFIG_ARGN
+PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+//Have include regex.h
+REGEX_H:INTERNAL=1
+//ADVANCED property for variable: Vorbis_Enc_INCLUDE_DIR
+Vorbis_Enc_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Vorbis_Enc_LIBRARY
+Vorbis_Enc_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Vorbis_File_INCLUDE_DIR
+Vorbis_File_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Vorbis_File_LIBRARY
+Vorbis_File_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Vorbis_Vorbis_INCLUDE_DIR
+Vorbis_Vorbis_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Vorbis_Vorbis_LIBRARY
+Vorbis_Vorbis_LIBRARY-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
+__pkg_config_arguments_JACK:INTERNAL=jack
+__pkg_config_arguments_PC_FLAC:INTERNAL=QUIET;flac
+__pkg_config_arguments_PC_MPG123:INTERNAL=QUIET;libmpg123>=1.25.10
+__pkg_config_arguments_PC_OGG:INTERNAL=QUIET;ogg>=1.3.0
+__pkg_config_arguments_PC_OPUS:INTERNAL=QUIET;opus>=1.1
+__pkg_config_arguments_PC_Vorbis_Enc:INTERNAL=QUIET;vorbisenc
+__pkg_config_arguments_PC_Vorbis_File:INTERNAL=QUIET;vorbisfile
+__pkg_config_arguments_PC_Vorbis_Vorbis:INTERNAL=QUIET;vorbis
+__pkg_config_checked_JACK:INTERNAL=1
+__pkg_config_checked_PC_FLAC:INTERNAL=1
+__pkg_config_checked_PC_MPG123:INTERNAL=1
+__pkg_config_checked_PC_OGG:INTERNAL=1
+__pkg_config_checked_PC_OPUS:INTERNAL=1
+__pkg_config_checked_PC_Vorbis_Enc:INTERNAL=1
+__pkg_config_checked_PC_Vorbis_File:INTERNAL=1
+__pkg_config_checked_PC_Vorbis_Vorbis:INTERNAL=1
+//ADVANCED property for variable: mpg123_INCLUDE_DIR
+mpg123_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: mpg123_LIBRARY
+mpg123_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_JACK_jack
+pkgcfg_lib_JACK_jack-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_FLAC_FLAC
+pkgcfg_lib_PC_FLAC_FLAC-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_MPG123_mpg123
+pkgcfg_lib_PC_MPG123_mpg123-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_OGG_ogg
+pkgcfg_lib_PC_OGG_ogg-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_OPUS_opus
+pkgcfg_lib_PC_OPUS_opus-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_Vorbis_Enc_vorbisenc
+pkgcfg_lib_PC_Vorbis_Enc_vorbisenc-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_Vorbis_File_vorbisfile
+pkgcfg_lib_PC_Vorbis_File_vorbisfile-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_Vorbis_Vorbis_vorbis
+pkgcfg_lib_PC_Vorbis_Vorbis_vorbis-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=/usr/lib/x86_64-linux-gnu
 

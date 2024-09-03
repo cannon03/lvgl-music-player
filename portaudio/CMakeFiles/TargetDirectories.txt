@@ -1,0 +1,8 @@
+/home/frontend/dev/c/portaudio/build/CMakeFiles/PortAudio.dir
+/home/frontend/dev/c/portaudio/build/CMakeFiles/uninstall.dir
+/home/frontend/dev/c/portaudio/build/CMakeFiles/edit_cache.dir
+/home/frontend/dev/c/portaudio/build/CMakeFiles/rebuild_cache.dir
+/home/frontend/dev/c/portaudio/build/CMakeFiles/list_install_components.dir
+/home/frontend/dev/c/portaudio/build/CMakeFiles/install.dir
+/home/frontend/dev/c/portaudio/build/CMakeFiles/install/local.dir
+/home/frontend/dev/c/portaudio/build/CMakeFiles/install/strip.dir
